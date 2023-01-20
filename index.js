@@ -36,7 +36,7 @@ function createWindow() {
         projectPackager.options.controls.stopAll.enabled = true;
         projectPackager.options.controls.fullscreen.enabled = true;
         projectPackager.options.controls.pause.enabled = true;
-        projectPackager.options.custom.js = "let closeIcon = document.createElement('img'); closeIcon.className = 'control-button fullscreen-button'; closeIcon.src = '" + process.env.closeIcon + "'; closeIcon.style.marginLeft = '5px'; closeIcon.addEventListener('click', () => { require('electron').ipcRenderer.send('closeProject'); }); document.getElementsByClassName('sc-controls-bar')[0].children[1].appendChild(closeIcon);";
+        projectPackager.options.custom.js = "let closeIcon = document.createElement('img'); closeIcon.className = 'control-button fullscreen-button'; closeIcon.src = '" + process.env.CLOSE_ICON + "'; closeIcon.style.marginLeft = '5px'; closeIcon.addEventListener('click', () => { require('electron').ipcRenderer.send('closeProject'); }); document.getElementsByClassName('sc-controls-bar')[0].children[1].appendChild(closeIcon);";
         projectPackager.package().then(({ data }) => {
           crypto.randomBytes(4, (err, cacheId) => {
             if (err) return;

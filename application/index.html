@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scratch Desktop</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <div id="page" style="display: block;">
+    <select id="typeSelect">
+      <option value="installedProjects">Installed Projects</option>
+      <option value="installProject">Install Project</option>
+    </select>
+    <div id="installedProjectsContainer" style="display: block;">
+      <h3>No projects installed</h3>
+    </div>
+    <div id="installProjectContainer" style="display: none;">
+      <input id="installProjectInput" type="number" required>
+      <button id="installProjectButton">Install Project</button>
+    </div>
+  </div>
+  <iframe id="projectIframe" class="projectIframe" src="about:blank" style="display: none;"></iframe>
+</body>
+</html>

@@ -1,0 +1,16 @@
+html {
+  font-family: Montserrat, "Noto Sans Arabic", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+.projectImage {
+  width: 250px;
+  border: 2px solid black;
+}
+
+.projectIframe {
+  border: none;
+}

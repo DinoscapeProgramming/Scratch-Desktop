@@ -40,6 +40,9 @@ function createWindow() {
         projectPackager.package().then(({ data }) => {
           crypto.randomBytes(4, (err, cacheId) => {
             if (err) return;
+            if (!fs.readdirSync(__dirname).includes("cache")) {
+              fs.mkdirSync("./cache");
+            }
             fs.writeFileSync("./cache/" + cacheId.toString("hex") + ".html", data , "utf8");
             window.webContents.once('dom-ready', () => {
               fs.unlinkSync("./cache/" + cacheId.toString("hex") + ".html");

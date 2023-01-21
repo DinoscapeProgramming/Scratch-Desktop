@@ -10,7 +10,7 @@ function createWindow() {
     show: false,
     title: "Scratch Desktop",
     icon: path.join(__dirname, "assets/favicon.png"),
-    autoHideMenuBar: true,
+    //autoHideMenuBar: true,
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false
@@ -36,13 +36,11 @@ function createWindow() {
         projectPackager.options.controls.stopAll.enabled = true;
         projectPackager.options.controls.fullscreen.enabled = true;
         projectPackager.options.controls.pause.enabled = true;
-        projectPackager.options.custom.js = "let closeIcon = document.createElement('img'); closeIcon.className = 'control-button fullscreen-button'; closeIcon.src = '" + process.env.CLOSE_ICON + "'; closeIcon.style.marginLeft = '5px'; closeIcon.addEventListener('click', () => { require('electron').ipcRenderer.send('closeProject'); }); document.getElementsByClassName('sc-controls-bar')[0].children[1].appendChild(closeIcon);";
+        projectPackager.options.custom.js = "let uninstallIcon = document.createElement('img'); uninstallIcon.className = 'control-button fullscreen-button'; uninstallIcon.src = '" + process.env.UNINSTALL_ICON + "'; uninstallIcon.style.marginLeft = '5px'; uninstallIcon.addEventListener('click', () => { require('fs').unlinkSync('./projects/data/" + projectId + ".json'); require('fs').unlinkSync('./projects/thumbnails/" + projectId + ".png'); require('fs').unlinkSync('./projects/code/" + projectId + ".sb3'); require('electron').ipcRenderer.send('closeProject'); }); let closeIcon = document.createElement('img'); closeIcon.className = 'control-button fullscreen-button'; closeIcon.src = '" + process.env.CLOSE_ICON + "'; closeIcon.style.marginLeft = '5px'; closeIcon.addEventListener('click', () => { require('electron').ipcRenderer.send('closeProject'); }); document.getElementsByClassName('sc-controls-bar')[0].children[1].appendChild(uninstallIcon); document.getElementsByClassName('sc-controls-bar')[0].children[1].appendChild(closeIcon);";
         projectPackager.package().then(({ data }) => {
           crypto.randomBytes(4, (err, cacheId) => {
             if (err) return;
-            if (!fs.readdirSync(__dirname).includes("cache")) {
-              fs.mkdirSync("./cache");
-            }
+            if (!fs.readdirSync(__dirname).includes("cache")) fs.mkdirSync("./cache");
             fs.writeFileSync("./cache/" + cacheId.toString("hex") + ".html", data , "utf8");
             window.webContents.once('dom-ready', () => {
               fs.unlinkSync("./cache/" + cacheId.toString("hex") + ".html");

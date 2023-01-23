@@ -1,18 +1,45 @@
 {
   "name": "scratch-desktop",
   "version": "1.0.0",
-  "description": "",
+  "description": "A Scratch Desktop that allows you to install Scratch Games and play them without internet",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
   },
   "keywords": [],
-  "author": "",
+  "author": "Dinoscape",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^22.0.3"
+    "@electron-forge/cli": "^6.0.4",
+    "@electron-forge/maker-deb": "^6.0.4",
+    "@electron-forge/maker-rpm": "^6.0.4",
+    "@electron-forge/maker-squirrel": "^6.0.4",
+    "@electron-forge/maker-zip": "^6.0.4",
+    "electron": "^22.0.3",
+    "electron-builder": "^19.52.1"
   },
   "dependencies": {
-    "@turbowarp/packager": "^1.5.0"
+    "@turbowarp/packager": "^1.5.0",
+    "@turbowarp/sbdl": "^2.3.1",
+    "electron-squirrel-startup": "^1.0.0"
+  },
+  "build": {
+    "appId": "com.ipenywis.app",
+    "productName": "Scratch Desktop",
+    "target": "NSIS",
+    "directories": {
+      "output": "build"
+    },
+    "icon": "assets/favicon.ico",
+    "nsis": {
+      "installerIcon": "assets/favicon.ico",
+      "installerHeaderIcon": "assets/favicon.ico",
+      "deleteAppDataOnUninstall": true,
+      "allowToChangeInstallationDirectory": true,
+      "oneClick": false
+    }
   }
 }

@@ -6,6 +6,26 @@ body {
   margin: 0;
 }
 
+.typeSelect {
+  width: calc(100% - 17px);
+  height: 30px;
+  margin: 11px 7.5px 4.5px 7.5px;
+  border: none;
+  box-shadow: 0 0 0 1px rgb(0 0 0 / 10%);
+  border-radius: 4px;
+  padding: 5px;
+}
+
+.text {
+  width: 100%;
+  height: 30px;
+  margin: 5px 9.5px 4.5px 7.5px;
+  border: none;
+  box-shadow: 0 0 0 1px rgb(0 0 0 / 10%);
+  border-radius: 4px;
+  padding: 15px 15px 7.5px;
+}
+
 .container {
   box-shadow: 0 0 0 1px rgb(0 0 0 / 10%);
   border-radius: 4px;
@@ -153,5 +173,30 @@ body {
   line-height: 1.2em;
   word-wrap: break-word;
   text-align: left;
+  cursor: pointer;
+}
+
+.installProjectInput {
+  width: calc(100% - 26.5px);
+  height: 20px;
+  border: none;
+  box-shadow: 0 0 0 1px rgb(0 0 0 / 10%);
+  border-radius: 4px;
+  padding: 5px;
+  margin-top: 3.5px;
+  margin-left: 7.5px;
+  text-align: center;
+}
+
+.installProjectButton {
+  background-color: #4d97ff;
+  color: white;
+  width: calc(100% - 17px);
+  height: 30px;
+  margin: 8px 7.5px 4.5px 7.5px;
+  border: none;
+  box-shadow: 0 0 0 1px #4d97ff;
+  border-radius: 4px;
+  padding: 5px;
   cursor: pointer;
 }

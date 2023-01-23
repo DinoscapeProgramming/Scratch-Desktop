@@ -9,16 +9,16 @@
   <script defer src="script.js"></script>
 </head>
 <body>
-  <select id="typeSelect">
+  <select id="typeSelect" class="typeSelect">
     <option value="installedProjects">Installed Projects</option>
     <option value="installProject">Install Project</option>
   </select>
-  <div id="installedProjectsContainer" style="display: block;">
-    <h3>No projects installed</h3>
+  <div id="installedProjectsContainer" style="display: flex;">
+    <h3 class="text">No projects installed</h3>
   </div>
   <div id="installProjectContainer" style="display: none;">
-    <input id="installProjectInput" type="number" required>
-    <button id="installProjectButton">Install Project</button>
+    <input id="installProjectInput" class="installProjectInput" placeholder="Project Id" type="number" required>
+    <button id="installProjectButton" class="installProjectButton">Install Project</button>
   </div>
 </body>
 </html>
